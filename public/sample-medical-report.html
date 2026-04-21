@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Medical Report – Sarah Mitchell</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Times New Roman', serif;
+      font-size: 12pt;
+      color: #111;
+      background: #fff;
+      padding: 40px 60px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .clinic-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 3px double #333;
+      padding-bottom: 14px;
+      margin-bottom: 20px;
+    }
+    .clinic-name {
+      font-size: 18pt;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    .clinic-sub {
+      font-size: 10pt;
+      color: #555;
+      margin-top: 3px;
+    }
+    .clinic-contact {
+      text-align: right;
+      font-size: 9.5pt;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    /* Report title */
+    .report-title {
+      text-align: center;
+      font-size: 14pt;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin: 18px 0 6px;
+      text-decoration: underline;
+    }
+    .report-date {
+      text-align: center;
+      font-size: 10pt;
+      color: #555;
+      margin-bottom: 22px;
+    }
+
+    /* Patient Info */
+    .patient-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 30px;
+      border: 1px solid #bbb;
+      padding: 12px 16px;
+      margin-bottom: 22px;
+      background: #f9f9f9;
+    }
+    .patient-grid .field { font-size: 10.5pt; }
+    .patient-grid .label { font-weight: bold; }
+
+    /* Section */
+    .section { margin-bottom: 20px; }
+    .section-title {
+      font-size: 11.5pt;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-bottom: 1px solid #999;
+      padding-bottom: 4px;
+      margin-bottom: 10px;
+    }
+    p, li { line-height: 1.7; font-size: 11pt; }
+    ul { padding-left: 22px; }
+    li { margin-bottom: 3px; }
+
+    /* Lab Table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 10.5pt;
+      margin-top: 6px;
+    }
+    th {
+      background: #333;
+      color: #fff;
+      padding: 7px 10px;
+      text-align: left;
+    }
+    td {
+      padding: 6px 10px;
+      border-bottom: 1px solid #ddd;
+    }
+    tr:nth-child(even) td { background: #f4f4f4; }
+    .abnormal { color: #c0392b; font-weight: bold; }
+    .normal { color: #2c7a2c; }
+
+    /* Assessment Box */
+    .assessment-box {
+      border: 2px solid #333;
+      padding: 14px 18px;
+      margin: 20px 0;
+      background: #fffdf0;
+    }
+    .assessment-box p { font-size: 11pt; }
+
+    /* Doctor sig */
+    .signature-block {
+      margin-top: 40px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 10.5pt;
+    }
+    .sig-line {
+      border-top: 1px solid #333;
+      padding-top: 5px;
+      min-width: 220px;
+      text-align: center;
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 30px;
+      border-top: 1px solid #bbb;
+      padding-top: 10px;
+      font-size: 9pt;
+      color: #777;
+      text-align: center;
+    }
+
+    @media print {
+      body { padding: 20px 40px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Clinic Header -->
+  <div class="clinic-header">
+    <div>
+      <div class="clinic-name">Greenfield Medical Centre</div>
+      <div class="clinic-sub">Department of Internal Medicine &amp; Endocrinology</div>
+      <div class="clinic-sub">Accredited by the National Board of Healthcare Standards</div>
+    </div>
+    <div class="clinic-contact">
+      482 Harley Street, London, W1G 9QP<br>
+      Tel: +44 20 7946 0321<br>
+      Fax: +44 20 7946 0322<br>
+      info@greenfieldmedical.co.uk
+    </div>
+  </div>
+
+  <div class="report-title">Outpatient Consultation Report</div>
+  <div class="report-date">Date of Visit: March 14, 2025 &nbsp;|&nbsp; Report Generated: March 15, 2025 &nbsp;|&nbsp; Report No: GMC-2025-03847</div>
+
+  <!-- Patient Info -->
+  <div class="patient-grid">
+    <div class="field"><span class="label">Patient Name:</span> Sarah Mitchell</div>
+    <div class="field"><span class="label">Date of Birth:</span> 12 June 1989 (Age: 35)</div>
+    <div class="field"><span class="label">Gender:</span> Female</div>
+    <div class="field"><span class="label">NHS Number:</span> 485 741 2390</div>
+    <div class="field"><span class="label">Address:</span> 17 Maple Grove, Leeds, LS6 3AH</div>
+    <div class="field"><span class="label">Phone:</span> 07712 334 891</div>
+    <div class="field"><span class="label">GP Referral:</span> Dr. James Hartley (Elmwood Surgery)</div>
+    <div class="field"><span class="label">Consulting Physician:</span> Dr. Priya Menon, MBBS, MRCP</div>
+  </div>
+
+  <!-- Presenting Complaint -->
+  <div class="section">
+    <div class="section-title">1. Presenting Complaint</div>
+    <p>
+      The patient presents with an 8-month history of persistent fatigue, unexplained weight gain of approximately 7 kg,
+      significant hair thinning and hair loss on the scalp, cold intolerance, constipation, and a general feeling of
+      "brain fog" affecting her ability to concentrate at work. She reports that her menstrual cycles have become
+      increasingly irregular over the past 5 months. The patient states that her GP initially attributed these symptoms
+      to stress and lifestyle factors and advised rest and dietary changes without ordering any investigations.
+    </p>
+  </div>
+
+  <!-- History -->
+  <div class="section">
+    <div class="section-title">2. History of Presenting Illness</div>
+    <ul>
+      <li>Symptoms began insidiously approximately 8 months ago following a period of significant work-related stress.</li>
+      <li>Fatigue is described as constant and debilitating — the patient reports sleeping 10–11 hours per night and still waking unrefreshed.</li>
+      <li>Weight gain of ~7 kg despite no significant change in diet or exercise habits.</li>
+      <li>Hair loss is diffuse; the patient reports noticing large amounts of hair in the shower drain daily.</li>
+      <li>Cold intolerance: patient feels cold even in warm environments; colleagues do not share the same discomfort.</li>
+      <li>Constipation: bowel movements reduced to 2–3 times per week from daily previously.</li>
+      <li>Cognitive difficulties: difficulty concentrating, slow processing speed, low motivation.</li>
+      <li>Puffy face observed by the patient herself, particularly in the mornings.</li>
+      <li>No history of neck swelling, difficulty swallowing, or voice changes noted.</li>
+    </ul>
+  </div>
+
+  <!-- Past Medical History -->
+  <div class="section">
+    <div class="section-title">3. Past Medical &amp; Surgical History</div>
+    <ul>
+      <li>Iron-deficiency anaemia – treated in 2019, resolved with supplementation.</li>
+      <li>Appendectomy – 2011, uncomplicated.</li>
+      <li>No known thyroid conditions. No prior autoimmune diagnoses.</li>
+      <li>No history of radiation therapy to the neck.</li>
+    </ul>
+  </div>
+
+  <!-- Medications & Allergies -->
+  <div class="section">
+    <div class="section-title">4. Current Medications &amp; Allergies</div>
+    <ul>
+      <li>Ferrous sulphate 200mg – PRN (occasional, self-prescribed)</li>
+      <li>Vitamin D3 1000 IU – daily (self-prescribed)</li>
+      <li>No known drug allergies</li>
+    </ul>
+  </div>
+
+  <!-- Examination -->
+  <div class="section">
+    <div class="section-title">5. Physical Examination</div>
+    <ul>
+      <li><strong>General:</strong> Alert, well-oriented. Appears mildly puffy in the face. Speaks slowly.</li>
+      <li><strong>Vitals:</strong> BP 102/68 mmHg | HR 58 bpm (bradycardic) | Temp 36.1°C | BMI 29.4 kg/m²</li>
+      <li><strong>Skin &amp; Hair:</strong> Dry, coarse skin noted on hands and shins. Diffuse hair thinning on scalp. Lateral third of eyebrows sparse (possible Queen Anne's sign).</li>
+      <li><strong>Thyroid:</strong> No palpable goitre. No cervical lymphadenopathy.</li>
+      <li><strong>Cardiovascular:</strong> Regular, rate 58 bpm. No murmurs. Mild peripheral puffiness bilaterally (non-pitting oedema).</li>
+      <li><strong>Neurological:</strong> Delayed relaxation phase of ankle reflexes noted (characteristic finding).</li>
+      <li><strong>Abdomen:</strong> Soft, mildly distended. No organomegaly.</li>
+    </ul>
+  </div>
+
+  <!-- Investigations -->
+  <div class="section">
+    <div class="section-title">6. Investigations &amp; Laboratory Results</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Test</th>
+          <th>Result</th>
+          <th>Reference Range</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>TSH (Thyroid Stimulating Hormone)</td>
+          <td class="abnormal">11.4 mIU/L</td>
+          <td>0.4 – 4.0 mIU/L</td>
+          <td class="abnormal">HIGH ↑</td>
+        </tr>
+        <tr>
+          <td>Free T4 (Thyroxine)</td>
+          <td class="abnormal">7.2 pmol/L</td>
+          <td>12.0 – 22.0 pmol/L</td>
+          <td class="abnormal">LOW ↓</td>
+        </tr>
+        <tr>
+          <td>Free T3 (Triiodothyronine)</td>
+          <td class="abnormal">2.9 pmol/L</td>
+          <td>3.1 – 6.8 pmol/L</td>
+          <td class="abnormal">LOW ↓</td>
+        </tr>
+        <tr>
+          <td>Anti-TPO Antibodies</td>
+          <td class="abnormal">342 IU/mL</td>
+          <td>&lt; 34 IU/mL</td>
+          <td class="abnormal">HIGH ↑ (Autoimmune)</td>
+        </tr>
+        <tr>
+          <td>Anti-Thyroglobulin Antibodies</td>
+          <td class="abnormal">198 IU/mL</td>
+          <td>&lt; 115 IU/mL</td>
+          <td class="abnormal">HIGH ↑</td>
+        </tr>
+        <tr>
+          <td>Full Blood Count – Haemoglobin</td>
+          <td class="abnormal">10.9 g/dL</td>
+          <td>12.0 – 16.0 g/dL</td>
+          <td class="abnormal">LOW ↓ (Mild anaemia)</td>
+        </tr>
+        <tr>
+          <td>Serum Ferritin</td>
+          <td class="abnormal">9.2 ng/mL</td>
+          <td>12 – 150 ng/mL</td>
+          <td class="abnormal">LOW ↓</td>
+        </tr>
+        <tr>
+          <td>Serum Cholesterol (Total)</td>
+          <td class="abnormal">6.8 mmol/L</td>
+          <td>&lt; 5.0 mmol/L</td>
+          <td class="abnormal">HIGH ↑</td>
+        </tr>
+        <tr>
+          <td>Blood Glucose (Fasting)</td>
+          <td class="normal">5.1 mmol/L</td>
+          <td>3.9 – 5.5 mmol/L</td>
+          <td class="normal">Normal</td>
+        </tr>
+        <tr>
+          <td>Liver Function Tests</td>
+          <td class="normal">Within limits</td>
+          <td>—</td>
+          <td class="normal">Normal</td>
+        </tr>
+        <tr>
+          <td>Renal Function (eGFR)</td>
+          <td class="normal">78 mL/min</td>
+          <td>&gt; 60 mL/min</td>
+          <td class="normal">Normal</td>
+        </tr>
+        <tr>
+          <td>Vitamin D (25-OH)</td>
+          <td class="abnormal">18 nmol/L</td>
+          <td>50 – 125 nmol/L</td>
+          <td class="abnormal">DEFICIENT ↓</td>
+        </tr>
+        <tr>
+          <td>Vitamin B12</td>
+          <td class="abnormal">168 pg/mL</td>
+          <td>200 – 900 pg/mL</td>
+          <td class="abnormal">LOW ↓</td>
+        </tr>
+        <tr>
+          <td>Thyroid Ultrasound</td>
+          <td colspan="2">Mildly heterogeneous echogenicity. No nodules. Gland slightly reduced in volume. Consistent with early Hashimoto's thyroiditis.</td>
+          <td class="abnormal">Abnormal</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Assessment -->
+  <div class="assessment-box">
+    <div class="section-title" style="border-bottom: 1px solid #aaa;">7. Assessment &amp; Diagnosis</div>
+    <br>
+    <p><strong>Primary Diagnosis:</strong> <span style="font-size: 12pt;">Hypothyroidism secondary to Hashimoto's Thyroiditis (Autoimmune Thyroiditis)</span></p>
+    <br>
+    <p>
+      The clinical presentation, elevated TSH, suppressed free T4 and T3, markedly elevated Anti-TPO and Anti-Thyroglobulin antibodies,
+      and ultrasound findings are all consistent with a diagnosis of Hashimoto's Thyroiditis — an autoimmune condition in which
+      the immune system attacks the thyroid gland, reducing its ability to produce sufficient thyroid hormone.
+    </p>
+    <br>
+    <p><strong>Secondary Findings:</strong></p>
+    <ul style="margin-top: 6px;">
+      <li>Iron-deficiency anaemia (recurrent) — likely exacerbated by hypothyroid state</li>
+      <li>Vitamin D deficiency — requires therapeutic supplementation</li>
+      <li>Vitamin B12 borderline low — to be monitored</li>
+      <li>Secondary hypercholesterolaemia — expected to improve with thyroid treatment</li>
+    </ul>
+  </div>
+
+  <!-- Plan -->
+  <div class="section">
+    <div class="section-title">8. Management Plan</div>
+    <ul>
+      <li><strong>Levothyroxine 50mcg</strong> daily, to be titrated. Commence immediately.</li>
+      <li>Thyroid function repeat in <strong>6–8 weeks</strong> to reassess TSH and Free T4.</li>
+      <li><strong>Ferrous fumarate 210mg</strong> twice daily for iron-deficiency anaemia.</li>
+      <li><strong>Cholecalciferol 20,000 IU</strong> weekly for 8 weeks, then reassess Vitamin D levels.</li>
+      <li><strong>Vitamin B12</strong> supplementation initiated (1000mcg daily oral).</li>
+      <li>Dietary advice: high-fibre diet for constipation; avoid excessive iodine or raw cruciferous vegetables.</li>
+      <li>Patient counselled on the chronic nature of Hashimoto's thyroiditis and the expected timeline for symptom improvement (6–12 weeks after starting treatment).</li>
+      <li>Referral to dietitian for weight management support.</li>
+      <li>Follow-up appointment in <strong>8 weeks</strong>. If TSH remains elevated, increase Levothyroxine to 75mcg.</li>
+    </ul>
+  </div>
+
+  <!-- Notes -->
+  <div class="section">
+    <div class="section-title">9. Clinician's Notes</div>
+    <p>
+      Patient was understandably frustrated that these symptoms — which had significantly impacted her quality of life for over
+      8 months — were not investigated by her GP despite multiple presentations. She should have been referred for thyroid
+      function tests at her second or third visit. The elevated antibodies suggest this condition has likely been developing
+      over a prolonged period. Prognosis with appropriate thyroid hormone replacement is excellent. Patient is aware.
+    </p>
+  </div>
+
+  <!-- Signature -->
+  <div class="signature-block">
+    <div class="sig-line">
+      <p>Dr. Priya Menon MBBS, MRCP</p>
+      <p>Consultant Endocrinologist</p>
+      <p>Greenfield Medical Centre</p>
+    </div>
+    <div style="text-align: right; font-size: 10.5pt;">
+      <p>GMC Registration No: 7482910</p>
+      <p>Electronically signed: 15 March 2025</p>
+      <p>Verified &amp; validated ✓</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    This document is confidential and intended solely for the use of the named patient and relevant healthcare providers.<br>
+    Greenfield Medical Centre · 482 Harley Street, London W1G 9QP · Registered in England No. 04729183 · VAT No. 832 4719 11
+  </div>
+
+</body>
+</html>

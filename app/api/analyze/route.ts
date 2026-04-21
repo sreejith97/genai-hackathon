@@ -20,6 +20,12 @@ export async function POST(req: Request) {
 
     return NextResponse.json(results);
   } catch (err: any) {
+    if (err.message === "RELEVANCY_ERROR") {
+      return NextResponse.json({ 
+        error: "Your input doesn't appear to be related to a medical visit or health concern. Please describe a medical appointment, your symptoms, or upload a medical document." 
+      }, { status: 400 });
+    }
+    
     console.error("Error analyzing patient input:", err);
     return NextResponse.json({ error: err.message || "Failed to analyze input." }, { status: 500 });
   }
