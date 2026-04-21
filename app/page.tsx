@@ -6,9 +6,9 @@ export default function Home() {
       {/* Background Decorative Gradients */}
       <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full bg-blue-600/20 blur-[120px] pointer-events-none" />
       <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] rounded-full bg-purple-600/20 blur-[120px] pointer-events-none" />
-      
+
       {/* Chat App Container */}
-      <div className="w-full h-full max-h-[800px] max-w-5xl relative z-10 flex flex-col">
+      <div className="w-full h-full max-h-[800px] max-w-5xl relative z-10 flex flex-col bg-">
         <ChatLayout />
       </div>
     </main>

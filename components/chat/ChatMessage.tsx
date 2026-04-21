@@ -16,9 +16,9 @@ export function ChatMessage({ message }: ChatMessageProps) {
   // In AI SDK 5, content is in parts
   const content = message.parts
     ? message.parts
-        .filter((part) => part.type === "text")
-        .map((part) => (part.type === "text" ? part.text : ""))
-        .join("")
+      .filter((part) => part.type === "text")
+      .map((part) => (part.type === "text" ? part.text : ""))
+      .join("")
     : (message as any).content || "";
 
   return (
@@ -45,7 +45,7 @@ export function ChatMessage({ message }: ChatMessageProps) {
           </>
         )}
       </Avatar>
-      
+
       <div
         className={cn(
           "flex flex-col gap-2 max-w-[85%] md:max-w-[75%]",
@@ -63,7 +63,7 @@ export function ChatMessage({ message }: ChatMessageProps) {
           {isUser ? (
             <p className="whitespace-pre-wrap">{content}</p>
           ) : (
-            <div className="prose prose-sm dark:prose-invert max-w-none">
+            <div className="prose prose-sm dark:prose-invert max-w-none ">
               <ReactMarkdown>{content}</ReactMarkdown>
             </div>
           )}
